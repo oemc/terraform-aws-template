@@ -4,8 +4,7 @@ output "vpc_id" {
 
 output "public_subnets" {
   value = [
-      aws_subnet.omc_subnet_public_0.id,
-      aws_subnet.omc_subnet_public_1.id,
-      aws_subnet.omc_subnet_public_2.id
+      for subnet in aws_subnet.omc_subnet_public :
+      subnet.id
   ]  
 }
